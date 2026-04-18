@@ -1,0 +1,204 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: rgb(243, 242, 242);
+}
+
+
+
+
+/* NAVBAR */
+.nav {
+    display: flex;
+    background-color: #48afff;
+    width: 100vw;
+    align-items: center;
+    height: 4rem;
+}
+
+.left {
+    display: flex;
+    align-items: center;
+    width: 20vw;
+    padding-left: 12px;
+}
+
+.logo img {
+    height: 1.7rem;
+    margin-left: 2rem;
+}
+
+.mid {
+    display: flex;
+    justify-content: center;
+    width: 60vw;
+}
+
+.input {
+    position: relative;
+}
+
+input {
+    font-size: 16px;
+    padding: 10px 400px 10px 10px;
+    border-radius: 7px;
+    border: none;
+}
+
+.input img {
+    position: absolute;
+    right: 13px;
+    top: 9px;
+    height: 1.3rem;
+}
+
+.right {
+    display: flex;
+    justify-content: flex-end;
+    width: 20vw;
+    padding-right: 12px;
+}
+
+.button1 {
+    padding: 8px 15px;
+    border-radius: 5px;
+    border: none;
+    background-color: white;
+    color: #48afff;
+}
+
+.button2 {
+    padding: 8px 15px;
+    border-radius: 5px;
+    border: 1px solid white;
+    background-color: #48afff;
+    color: white;
+}
+
+/* BANNER */
+.bannersection {
+    background-image: url(https://static.priceoye.pk/images/categories/section-earbuds-bg-md.png);
+    height: 16rem;
+    margin-top: 2rem;
+    width: 100vw;
+}
+
+.first {
+    display: flex;
+    justify-content: space-between;
+    width: 80vw;
+    margin: auto;
+    padding-top: 2.5rem;
+    padding-bottom: 2rem;
+    color: white;
+}
+
+.first button {
+    padding: 8px 15px;
+    border-radius: 3px;
+    border: none;
+    background-color: rgb(238, 231, 231);
+}
+
+/* PRODUCTS */
+.packagesec {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 18px;
+    width: 80vw;
+    margin: auto;
+}
+
+.prow1, .prow2 {
+    display: flex;
+    gap: 18px;
+    width: 100%;
+}
+
+.row1, .row2 {
+    background-color: white;
+    padding: 1rem;
+    width: 19vw;
+    border-radius: 3px;
+}
+
+.row1 img, .row2 img {
+    display: block;
+    margin: auto;
+    height: 5rem;
+    width: 5rem;
+    padding: 1rem 0;
+}
+
+.rate {
+    font-weight: 600;
+    font-size: 18px;
+    margin-top: 1rem;
+}
+
+.diff-rate {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: rgb(194, 193, 193);
+}
+
+.up {
+    text-decoration: line-through;
+    text-decoration-color: red;
+}
+
+.down {
+    background-color: #f0faf7;
+    color: #0bb07e;
+    padding: 5px 10px;
+    border-radius: 10px;
+}
+
+/* FOOTER */
+.colorfooter {
+    background-color: #3eabff;
+    width: 100vw;
+}
+
+.low-footer {
+    display: flex;
+    justify-content: center;
+    padding: 1rem;
+    color: white;
+}
+
+.low-footer img {
+    width: 1.5rem;
+    margin-left: 0.5rem;
+}
+
+/* HOVER */
+button:hover {
+    cursor: pointer;
+}
+.buy-btn {
+    width: 100%;
+    margin-top: 10px;
+    padding: 8px;
+    background-color: #48afff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-weight: 600;
+}
+
+.btn:hover {
+    background-color: #2c8ed6;
+}
+
+.timer {
+    font-size: 12px;
+    color: red;
+    margin-top: 5px;
+    text-align: center;
+}

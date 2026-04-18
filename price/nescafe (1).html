@@ -1,0 +1,350 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>NESCAFÉ — Enjoy Your Day With a Coffee</title>
+<meta name="description" content="Discover NESCAFÉ — premium instant coffee since 1938. Explore Gold, Classic, recipes, and our sustainability mission.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,700;1,800&family=Inter:wght@300;400;500;600&family=Bebas+Neue&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:hsl(30 20% 97%); --fg:hsl(25 30% 10%);
+    --primary:hsl(358 75% 42%); --primary-foreground:hsl(30 30% 98%);
+    --espresso:hsl(25 40% 8%); --crema:hsl(30 50% 92%);
+    --gold:hsl(38 70% 55%); --gold-deep:hsl(32 75% 42%);
+    --muted:hsl(30 15% 92%); --muted-fg:hsl(25 15% 35%);
+    --border:hsl(30 15% 88%);
+    --gradient-gold:linear-gradient(135deg,var(--gold),var(--gold-deep));
+    --gradient-red:linear-gradient(135deg,hsl(358 75% 48%),hsl(358 80% 32%));
+    --gradient-espresso:linear-gradient(135deg,hsl(25 40% 12%),hsl(25 50% 5%));
+    --shadow-soft:0 10px 40px -10px hsl(25 40% 8% / .25);
+    --ease:cubic-bezier(.4,0,.2,1);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;border-color:var(--border)}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--fg);font-family:'Inter',system-ui,sans-serif;-webkit-font-smoothing:antialiased;line-height:1.5}
+  h1,h2,h3,h4{font-family:'Playfair Display',serif;letter-spacing:-.01em}
+  .font-display{font-family:'Bebas Neue',sans-serif;letter-spacing:.04em}
+  .container{max-width:1400px;margin:0 auto;padding:0 1.5rem}
+  img{max-width:100%;display:block}
+  a{color:inherit;text-decoration:none}
+  button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
+
+  /* HEADER */
+  header{position:fixed;inset:0 0 auto 0;z-index:50;transition:all .4s var(--ease);padding:1.5rem 0}
+  header.scrolled{background:hsl(25 40% 8% / .95);backdrop-filter:blur(12px);padding:.75rem 0;box-shadow:var(--shadow-soft)}
+  .nav{display:flex;align-items:center;justify-content:space-between;gap:1.5rem}
+  .brand{display:flex;align-items:baseline;color:#fff;font-family:'Playfair Display',serif;font-style:italic;font-weight:700;font-size:clamp(1.75rem,4vw,3rem);transition:font-size .4s var(--ease)}
+  header.scrolled .brand{font-size:1.875rem}
+  .brand .dot{position:relative}
+  .brand .dot::after{content:"";position:absolute;top:-.25rem;right:-.25rem;width:.4rem;height:.4rem;border-radius:50%;background:var(--primary)}
+  .brand sup{color:var(--primary);font-size:.65rem;margin-left:.25rem;font-weight:700;font-family:Inter}
+  nav.desktop{display:none;align-items:center;gap:2rem;margin-left:auto}
+  nav.desktop a{position:relative;color:hsl(0 0% 100% / .85);font-size:15px;font-weight:300;letter-spacing:.02em;transition:color .3s}
+  nav.desktop a:hover{color:#fff}
+  nav.desktop a::after{content:"";position:absolute;left:0;bottom:-.5rem;width:0;height:2px;background:var(--primary);transition:width .3s}
+  nav.desktop a:hover::after{width:100%}
+  .cta{display:none;align-items:center;gap:.5rem;background:var(--primary);color:#fff;font-size:.875rem;font-weight:500;letter-spacing:.08em;padding:.75rem 1.5rem;border-top-left-radius:.5rem;border-bottom-right-radius:1rem;transition:all .3s}
+  .cta:hover{background:#fff;color:var(--espresso)}
+  .menu-btn{color:#fff;padding:.5rem;display:flex}
+  @media(min-width:1024px){nav.desktop,.cta{display:flex}.menu-btn{display:none}}
+  .mobile-menu{overflow:hidden;max-height:0;transition:max-height .5s var(--ease);background:hsl(25 40% 8% / .98);backdrop-filter:blur(12px)}
+  .mobile-menu.open{max-height:500px;border-top:1px solid hsl(0 0% 100% / .1);margin-top:.75rem}
+  .mobile-menu nav{display:flex;flex-direction:column;padding:1.5rem;gap:1rem}
+  .mobile-menu a{color:hsl(0 0% 100% / .9);font-size:1.125rem;font-weight:300;padding:.5rem 0;border-bottom:1px solid hsl(0 0% 100% / .05)}
+
+  /* HERO */
+  .hero{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;overflow:hidden;background:var(--espresso)}
+  .hero img.bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+  .hero .wash1{position:absolute;inset:0;background:linear-gradient(to right,hsl(358 75% 42% / .4),hsl(25 40% 8% / .4),hsl(25 40% 8% / .8))}
+  .hero .wash2{position:absolute;inset:0;background:linear-gradient(to bottom,hsl(25 40% 8% / .6),transparent,hsl(25 40% 8% / .9))}
+  .hero-content{position:relative;z-index:10;text-align:center;padding:6rem 1rem 0}
+  .hero h1{font-family:'Playfair Display',serif;font-style:italic;color:#fff;font-weight:700;line-height:1.05;margin-bottom:2rem;font-size:clamp(2.5rem,8vw,5.5rem)}
+  .hero p{max-width:48rem;margin:0 auto 2.5rem;color:hsl(0 0% 100% / .75);font-weight:300;font-size:clamp(1rem,1.5vw,1.125rem)}
+  .moods{display:flex;justify-content:center;align-items:center;gap:.5rem;margin-bottom:4rem;color:hsl(0 0% 100% / .9)}
+  .moods .label{font-size:.875rem;letter-spacing:.3em;text-transform:uppercase}
+  .moods .spin{height:1.75rem;overflow:hidden}
+  .moods .spin ul{display:flex;flex-direction:column;animation:word-spin 10s ease-in-out infinite;list-style:none}
+  .moods .spin li{height:1.75rem;line-height:1.75rem;color:var(--primary);font-family:'Playfair Display',serif;font-style:italic;font-size:1.125rem;letter-spacing:.05em}
+  @keyframes word-spin{0%,16%{transform:translateY(0)}20%,36%{transform:translateY(-1.75rem)}40%,56%{transform:translateY(-3.5rem)}60%,76%{transform:translateY(-5.25rem)}80%,96%{transform:translateY(-7rem)}100%{transform:translateY(-8.75rem)}}
+  .scroll-hint{display:inline-flex;flex-direction:column;align-items:center;color:hsl(0 0% 100% / .6);transition:color .3s}
+  .scroll-hint:hover{color:#fff}
+  .scroll-hint svg{width:1.5rem;height:1.5rem;animation:scroll-hint 2s ease-in-out infinite}
+  .scroll-hint svg:first-child{margin-bottom:-.75rem}
+  .scroll-hint svg:last-child{animation-delay:.2s}
+  @keyframes scroll-hint{0%,100%{transform:translateY(0);opacity:.6}50%{transform:translateY(8px);opacity:1}}
+  @keyframes float-up{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+  .float{animation:float-up .9s var(--ease) both}
+
+  /* SECTIONS */
+  section{padding:6rem 0}
+  .eyebrow{font-family:'Bebas Neue',sans-serif;letter-spacing:.3em;color:var(--primary);font-size:.875rem;margin-bottom:1rem}
+  .section-title{font-size:clamp(2rem,4vw,3.5rem);margin-bottom:1rem}
+  .section-sub{color:var(--muted-fg);max-width:42rem;margin:0 auto;font-size:1.05rem}
+  .center{text-align:center}
+
+  /* STORY GRID */
+  .grid-2{display:grid;grid-template-columns:1fr;gap:2rem;margin-top:3rem}
+  @media(min-width:768px){.grid-2{grid-template-columns:1fr 1fr}}
+  .card{position:relative;border-radius:1rem;overflow:hidden;aspect-ratio:4/5;cursor:pointer;box-shadow:var(--shadow-soft)}
+  .card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .8s var(--ease)}
+  .card:hover img{transform:scale(1.06)}
+  .card .overlay{position:absolute;inset:0;background:linear-gradient(to top,hsl(25 40% 8% / .95) 0%,hsl(25 40% 8% / .35) 50%,transparent 100%)}
+  .card .text{position:absolute;left:0;right:0;bottom:0;padding:2rem;color:#fff}
+  .card .text small{font-family:'Bebas Neue';letter-spacing:.3em;color:var(--gold);font-size:.8rem}
+  .card .text h3{font-size:1.875rem;margin:.5rem 0 .75rem;font-style:italic}
+  .card .text p{color:hsl(0 0% 100% / .8);margin-bottom:1rem;font-weight:300}
+  .card .text .arrow{display:inline-flex;align-items:center;gap:.5rem;color:var(--gold);font-size:.875rem;letter-spacing:.15em;text-transform:uppercase}
+
+  /* PRODUCTS */
+  .products{background:var(--gradient-espresso);color:#fff;overflow:hidden}
+  .marquee{overflow:hidden;border-block:1px solid hsl(0 0% 100% / .1);padding:1.25rem 0;margin-bottom:4rem}
+  .marquee .track{display:flex;gap:3rem;width:max-content;animation:marquee 30s linear infinite;color:hsl(0 0% 100% / .15);font-family:'Bebas Neue';font-size:2.5rem;letter-spacing:.2em;white-space:nowrap}
+  @keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+  .products .section-sub{color:hsl(0 0% 100% / .7)}
+  .product{position:relative;border-radius:1rem;overflow:hidden;background:hsl(0 0% 100% / .04);border:1px solid hsl(0 0% 100% / .08);padding:2.5rem;display:flex;flex-direction:column;gap:1.5rem;min-height:520px}
+  .product img{width:100%;max-height:280px;object-fit:contain}
+  .product h3{font-size:2rem;font-style:italic;color:#fff}
+  .product .tag{font-family:'Bebas Neue';letter-spacing:.3em;color:var(--gold);font-size:.85rem}
+  .product p{color:hsl(0 0% 100% / .75);font-weight:300}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;padding:.85rem 1.75rem;font-size:.875rem;letter-spacing:.1em;font-weight:500;text-transform:uppercase;border-radius:.5rem;transition:all .3s;cursor:pointer}
+  .btn-primary{background:var(--primary);color:#fff}
+  .btn-primary:hover{background:#fff;color:var(--espresso)}
+  .btn-outline{border:1px solid hsl(0 0% 100% / .3);color:#fff}
+  .btn-outline:hover{background:#fff;color:var(--espresso)}
+  .more-row{text-align:center;margin-top:3rem}
+
+  /* MISSION */
+  .mission{position:relative;background:var(--espresso);color:#fff;overflow:hidden;padding:7rem 0}
+  .mission .bg-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.35}
+  .mission .veil{position:absolute;inset:0;background:linear-gradient(to right,hsl(25 40% 8% / .9),hsl(25 40% 8% / .55))}
+  .mission-inner{position:relative;z-index:2;max-width:42rem}
+  .mission h2{font-size:clamp(2rem,4vw,3.5rem);font-style:italic;margin-bottom:1.5rem}
+  .mission p{color:hsl(0 0% 100% / .8);margin-bottom:2rem;font-size:1.05rem}
+  .stats{position:relative;z-index:2;display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:3rem;max-width:48rem}
+  .stat{padding:1.5rem;border:1px solid hsl(0 0% 100% / .15);border-radius:.75rem;background:hsl(0 0% 100% / .04)}
+  .stat svg{color:var(--gold);width:2rem;height:2rem;margin-bottom:.75rem}
+  .stat .v{font-family:'Playfair Display';font-size:1.75rem;font-style:italic}
+  .stat .l{color:hsl(0 0% 100% / .7);font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;margin-top:.25rem}
+  .btn-row{display:flex;gap:1rem;flex-wrap:wrap}
+
+  /* FOOTER */
+  footer{background:#000;color:#fff;padding:5rem 0 2rem}
+  .footer-top{text-align:center;border-bottom:1px solid hsl(0 0% 100% / .1);padding-bottom:3rem;margin-bottom:2rem}
+  .footer-top svg{color:var(--primary);width:2.5rem;height:2.5rem;margin:0 auto 1rem}
+  .footer-top h3{font-size:1.75rem;font-style:italic;margin-bottom:.75rem}
+  .footer-top p{color:hsl(0 0% 100% / .6);max-width:32rem;margin:0 auto 2rem}
+  .socials{display:flex;justify-content:center;gap:1rem}
+  .socials a{width:2.75rem;height:2.75rem;display:inline-flex;align-items:center;justify-content:center;border:1px solid hsl(0 0% 100% / .15);border-radius:50%;transition:all .3s;color:#fff}
+  .socials a:hover{background:var(--primary);border-color:var(--primary)}
+  .footer-bottom{display:flex;flex-direction:column;gap:1.5rem;align-items:center;justify-content:space-between;color:hsl(0 0% 100% / .5);font-size:.875rem}
+  @media(min-width:768px){.footer-bottom{flex-direction:row}}
+  .footer-links{display:flex;gap:1.75rem;flex-wrap:wrap;justify-content:center}
+  .footer-links a{display:inline-flex;align-items:center;gap:.25rem;transition:color .3s}
+  .footer-links a:hover{color:#fff}
+</style>
+</head>
+<body>
+
+<header id="header">
+  <div class="container nav">
+    <a href="#home" class="brand">
+      NESCAF<span class="dot">É</span><sup>®</sup>
+    </a>
+    <nav class="desktop">
+      <a href="#home">Home</a>
+      <a href="#story">Our Story</a>
+      <a href="#products">Our Products</a>
+      <a href="#mission">Our Mission</a>
+      <a href="#contact">Contact Us</a>
+    </nav>
+    <a href="#contact" class="cta">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+      SELECT LOCATION
+    </a>
+    <button class="menu-btn" id="menuBtn" aria-label="Toggle menu">
+      <svg id="iconOpen" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      <svg id="iconClose" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:none"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#story">Our Story</a>
+      <a href="#products">Our Products</a>
+      <a href="#mission">Our Mission</a>
+      <a href="#contact">Contact Us</a>
+    </nav>
+  </div>
+</header>
+
+<section id="home" class="hero">
+  <img class="bg" src="https://images.unsplash.com/photo-1559525839-d9acfd03ceb6?w=1920&q=80" alt="NESCAFÉ coffee beans"/>
+  <div class="wash1"></div>
+  <div class="wash2"></div>
+  <div class="container hero-content">
+    <h1 class="float">Enjoy your day<br/>with a NESCAF<span style="position:relative">É<span style="position:absolute;top:-.5rem;right:-.5rem;width:.5rem;height:.5rem;border-radius:50%;background:var(--primary)"></span></span></h1>
+    <p class="float" style="animation-delay:.15s">Whether you like yours simply black or flamboyantly flavoured, piping hot or ice cold, or indulging yourself with added cream or a splash of whisky — there's a NESCAFÉ coffee to suit whatever mood you're in.</p>
+    <div class="moods float" style="animation-delay:.3s">
+      <span class="label">For every</span>
+      <div class="spin">
+        <ul>
+          <li>mood</li><li>morning</li><li>moment</li><li>break</li><li>day</li><li>mood</li>
+        </ul>
+      </div>
+    </div>
+    <a href="#story" class="scroll-hint" aria-label="Scroll">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+    </a>
+  </div>
+</section>
+
+<section id="story">
+  <div class="container">
+    <div class="center">
+      <div class="eyebrow">DISCOVER NESCAFÉ</div>
+      <h2 class="section-title">Crafted since <em>1938</em></h2>
+      <p class="section-sub">From a Brazilian harvest to your favourite mug — explore the heritage and the flavours that made NESCAFÉ a part of mornings around the world.</p>
+    </div>
+    <div class="grid-2">
+      <article class="card">
+        <img src="https://images.unsplash.com/photo-1442550528053-c431ecb55509?w=1200&q=80" alt="Our story"/>
+        <div class="overlay"></div>
+        <div class="text">
+          <small>OUR STORY</small>
+          <h3>A heritage of flavour</h3>
+          <p>Born from a request to help preserve Brazil's coffee surplus, today we serve over 5,500 cups every second.</p>
+          <span class="arrow">DISCOVER MORE →</span>
+        </div>
+      </article>
+      <article class="card">
+        <img src="https://images.unsplash.com/photo-1497935586351-b67a49e012bf?w=1200&q=80" alt="Our recipes"/>
+        <div class="overlay"></div>
+        <div class="text">
+          <small>OUR RECIPES</small>
+          <h3>Inspiration in a cup</h3>
+          <p>Iced lattes, dalgonas, frappés, espresso martinis — find a NESCAFÉ recipe for any mood, any moment.</p>
+          <span class="arrow">EXPLORE RECIPES →</span>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="products" class="products">
+  <div class="marquee">
+    <div class="track">
+      <span>NESCAFÉ • GOLD • CLASSIC • ORIGINAL • 3IN1 • DOLCE GUSTO •</span>
+      <span>NESCAFÉ • GOLD • CLASSIC • ORIGINAL • 3IN1 • DOLCE GUSTO •</span>
+    </div>
+  </div>
+  <div class="container">
+    <div class="center" style="margin-bottom:3rem">
+      <div class="eyebrow">OUR BRANDS</div>
+      <h2 class="section-title" style="color:#fff">A coffee for every <em>mood</em></h2>
+      <p class="section-sub">From smooth Gold blends to rich Classic — discover the range that has earned its place on tables worldwide.</p>
+    </div>
+    <div class="grid-2">
+      <article class="product">
+        <img src="https://images.unsplash.com/photo-1611854779393-1b2da9d400fe?w=800&q=80" alt="NESCAFÉ Gold"/>
+        <span class="tag">SMOOTH & AROMATIC</span>
+        <h3>NESCAFÉ Gold</h3>
+        <p>A masterful blend of mountain-grown Arabica beans, slowly roasted to deliver a smooth, full-bodied taste.</p>
+        <button class="btn btn-outline">EXPLORE →</button>
+      </article>
+      <article class="product">
+        <img src="https://images.unsplash.com/photo-1610889556528-9a770e32642f?w=800&q=80" alt="NESCAFÉ Classic"/>
+        <span class="tag">RICH & ROBUST</span>
+        <h3>NESCAFÉ Classic</h3>
+        <p>The original. A bold, full-flavoured cup made from a careful selection of beans for that signature NESCAFÉ taste.</p>
+        <button class="btn btn-outline">EXPLORE →</button>
+      </article>
+    </div>
+    <div class="more-row">
+      <button class="btn btn-outline">SEE MORE OTHER PRODUCTS →</button>
+    </div>
+  </div>
+</section>
+
+<section id="mission" class="mission">
+  <img class="bg-img" src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=1920&q=80" alt="Coffee farm"/>
+  <div class="veil"></div>
+  <div class="container">
+    <div class="mission-inner">
+      <div class="eyebrow">OUR MISSION</div>
+      <h2>Better coffee. Better lives. Better planet.</h2>
+      <p>Through the NESCAFÉ Plan, we are working hand-in-hand with farmers and communities to make coffee farming more sustainable — for people and for the planet.</p>
+      <div class="btn-row">
+        <button class="btn btn-primary">LEARN MORE</button>
+        <button class="btn btn-outline">READ THE REPORT</button>
+      </div>
+    </div>
+    <div class="stats">
+      <div class="stat">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19.2 2.96c1.4 9.3-3.2 18.04-8.2 17.04Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6"/></svg>
+        <div class="v">100%</div>
+        <div class="l">Responsibly sourced by 2025</div>
+      </div>
+      <div class="stat">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 19H4.815a1.83 1.83 0 0 1-1.57-.881 1.785 1.785 0 0 1-.004-1.784L7.196 9.5"/><path d="M11 19h8.203a1.83 1.83 0 0 0 1.556-.89 1.784 1.784 0 0 0 0-1.775l-1.226-2.12"/><path d="m14 16-3 3 3 3"/><path d="M8.293 13.596 7.196 9.5 3.1 10.598"/><path d="m9.344 5.811 1.093-1.892A1.83 1.83 0 0 1 11.985 3a1.784 1.784 0 0 1 1.546.888l3.943 6.843"/><path d="m13.378 9.633 4.096 1.098 1.097-4.096"/></svg>
+        <div class="v">100%</div>
+        <div class="l">Recyclable packaging by 2025</div>
+      </div>
+      <div class="stat">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+        <div class="v">15+</div>
+        <div class="l">Coffee-growing countries</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer id="contact">
+  <div class="container">
+    <div class="footer-top">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 8h1a4 4 0 0 1 0 8h-1"/><path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4Z"/><line x1="6" y1="2" x2="6" y2="4"/><line x1="10" y1="2" x2="10" y2="4"/><line x1="14" y1="2" x2="14" y2="4"/></svg>
+      <h3>Connect with us</h3>
+      <p>Follow NESCAFÉ for daily inspiration, recipes, and the stories behind every cup.</p>
+      <div class="socials">
+        <a href="#" aria-label="Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+        <a href="#" aria-label="Facebook"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+        <a href="#" aria-label="Twitter"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/></svg></a>
+        <a href="#" aria-label="Youtube"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17"/><path d="m10 15 5-3-5-3z"/></svg></a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>© <span id="year"></span> NESCAFÉ. All rights reserved.</div>
+      <div class="footer-links">
+        <a href="#">Privacy <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M7 7h10v10"/></svg></a>
+        <a href="#">Terms <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M7 7h10v10"/></svg></a>
+        <a href="#">Cookies <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M7 7h10v10"/></svg></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const header=document.getElementById('header');
+  const onScroll=()=>header.classList.toggle('scrolled',window.scrollY>30);
+  window.addEventListener('scroll',onScroll,{passive:true});onScroll();
+
+  const btn=document.getElementById('menuBtn');
+  const menu=document.getElementById('mobileMenu');
+  const open=document.getElementById('iconOpen');
+  const close=document.getElementById('iconClose');
+  btn.addEventListener('click',()=>{
+    const isOpen=menu.classList.toggle('open');
+    open.style.display=isOpen?'none':'block';
+    close.style.display=isOpen?'block':'none';
+  });
+  menu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{
+    menu.classList.remove('open');open.style.display='block';close.style.display='none';
+  }));
+
+  document.getElementById('year').textContent=new Date().getFullYear();
+</script>
+</body>
+</html>

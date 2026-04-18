@@ -1,0 +1,230 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1;
+}
+body {
+    background-color: rgb(243, 242, 242);
+}
+/* NAVBAR */
+.nav {
+    display: flex;
+    background-color: #48afff;
+    width: 100vw;
+    align-items: center;
+    height: 4rem;
+}
+
+.left {
+    display: flex;
+    align-items: center;
+    width: 20vw;
+    padding-left: 12px;
+}
+ 
+.logo img {
+    height: 1.7rem;
+    margin-left: 2rem;
+}
+.mid{
+    display: flex;
+    justify-content: center;
+    width: 60vw;
+}
+.mid input{
+height: 1.5rem;
+width: 50vw;
+}
+input{
+    position: relative;
+}
+input {
+    font-size: 16px;
+    padding: 10px 40px 10px 10px;
+    border-radius: 7px;
+    border: none;
+}
+.input img {
+    height: 1.3rem;
+    position: absolute;
+    right: 19.5rem;
+    top: 1.3rem;
+}
+.right{
+    display: flex;
+    justify-content: flex-end;
+    padding: 14px;
+width: 22vw;
+gap: 0.2rem;
+
+}
+.btn{
+    height: 2.1rem;
+    width: 4.2rem;
+    background-color: rgb(252, 252, 252);
+    border-radius: 0.5rem;
+         border: 1 solid white;
+         color: #48afff;
+         border: none;
+}
+.btn2{
+    height: 2rem;
+    width: 5rem;
+    background-color: transparent;
+        border-radius: 0.5rem;
+        color: aliceblue;
+        font-size: medium;
+  border-color:white;
+border-bottom: 1px solid white;
+border-right: 1px solid white;
+}
+.banner-section{
+   background-image: url(./price-oye-assingment/assests/banner2.png);
+    height: 16rem;
+    margin-top: 2rem;
+    width: 100vw;}
+.first{
+ display: flex;
+    justify-content: space-between;
+    width: 80vw;
+    margin: auto;
+    padding-top: 2.5rem;
+    padding-bottom: 2rem;
+    color: white;
+}
+.row1 {
+    width: 220px;
+    background-color: #fff;
+    border-radius: 12px;
+    padding: 15px;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    margin-left: 5rem;
+}
+
+.row1:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+}
+
+.small {
+    height: 90px;
+    object-fit: contain;
+    margin-bottom: 10px;
+}
+
+.row1 div:nth-child(2) {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+/* Price */
+.rate {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    font-size: 18px;
+    font-weight: 700;
+    color: #222;
+}
+
+/* Old + Discount */
+.diff-rate {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 8px;
+}
+
+.up {
+    font-size: 14px;
+    color: #aaa;
+    text-decoration: line-through;
+}
+
+.down {
+    background-color: #e6fff5;
+    color: #00a86b;
+    padding: 4px 8px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+/* Button */
+.buy-btn {
+    width: 100%;
+    margin-top: 12px;
+    padding: 10px;
+    background: linear-gradient(135deg, #48afff, #2c8ed6);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.buy-btn:hover {
+    opacity: 0.9;
+    transform: scale(1.2);
+}
+
+/* Timer */
+.timer {
+    font-size: 12px;
+    color: #ff4d4d;
+    margin-top: 5px;
+}
+
+.prow1 {
+    display: flex;
+    gap: 20px;   /* cards ke darmiyan space */
+    flex-wrap: wrap; /* responsive ban jaye */
+    
+}
+.foot{
+    display: flex;
+    justify-content: center;
+ /* text-align: center; */
+ margin-top: 24.5em;
+ background-color: #48afff;
+ height: 3.5em;
+/* position: fixed; */
+align-items: center;
+color: #e6fff5;
+font-size: large;
+margin-bottom: 0;
+font-weight: 500;
+}
+.btn:hover {
+    background-color: #2c8ed6;
+}
+.foot-img{
+margin-inline-start: 1em;
+    margin-left: 0.5rem;
+    font-size: xx-smalll;
+    row-gap: 2rem;
+    display: flex;
+    align-items: center;
+}
+.btn2:hover{
+background-color: black;
+color: #fff;
+}
